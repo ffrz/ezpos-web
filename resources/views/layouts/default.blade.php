@@ -3,10 +3,17 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Default Layout</title>
-        <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        <title>@yield('title')</title>
     </head>
     <body>
-        <h1>Default Layout</h1>
+        @if (\Session::has('success'))
+            <div class="alert alert-success">
+                <ul>
+                    <li>{!! \Session::get('success') !!}</li>
+                </ul>
+            </div>
+        @endif
+        <h1>@yield('title')</h1>
+        @yield('content')
     </body>
 </html>
